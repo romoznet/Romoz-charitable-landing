@@ -98,10 +98,14 @@ $(document).ready(function () {
 // Toggle the sticky header postion
 let header = document.querySelector("header");
 window.addEventListener("scroll", () => {
-  if (this.scrollY > 160) {
+  if (this.scrollY > 500) {
     header.classList.add("sticky");
+    header.style.boxShadow = "0 0 2px 1px rgba(0, 0, 0, 0.2)";
+    header.style.backgroundColor = "#fefefe";
   } else {
     header.classList.remove("sticky");
+    header.style.boxShadow = "none";
+    header.style.backgroundColor = "transparent";
   }
 });
 

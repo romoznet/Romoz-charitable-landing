@@ -49,11 +49,13 @@
           <img src="assets/logo.svg" loading="lazy" alt="" />
         </a>
         <ul class="nav-list">
-          <li class="active"><a href="index.html">الرئيسية</a></li>
+          <li class="active"><a href="index.html#top">الرئيسية</a></li>
           <li><a href="index.html#about-us">من نحن</a></li>
           <li><a href="index.html#achievement">أرقام وانجازات</a></li>
           <li><a href="index.html#events-projects">المناسبات والمشاريع</a></li>
-          <li><a href="index.html#donations-sections">أقسام التبرعات</a></li>
+          <li>
+            <a href="index.html#donations-sections">أقسام التبرعات</a>
+          </li>
           <li><a href="index.html#parteners">شركاء النجاح</a></li>
           <li><a href="index.html#contact">تواصل معنا</a></li>
         </ul>
@@ -70,7 +72,7 @@
     <!-- Start Main -->
     <main>
       <!-- Start Main Landing Section -->
-      <section class="swiper mainSlider">
+      <section class="swiper mainSlider" id="top">
         <div class="swiper-wrapper">
           <!-- swiper-slide -->
           <div class="swiper-slide">
@@ -83,6 +85,14 @@
                 خلال مبادراتنا الخيرية، نعمل على تحسين حياة الأفراد وتعزيز روح
                 العطاء. انضموا إلينا في مسيرتنا لتحقيق الأمل والازدهار.
               </p>
+              <div class="content-btn">
+                <a href="" class="donate-btn btn-default">
+                  <div class="btn-icon">
+                    <img src="assets/heart-icon.svg" alt="" />
+                  </div>
+                  <span>تبرع الآن</span>
+                </a>
+              </div>
             </div>
             <div class="slide-img-container">
               <img src="assets/slide-image-1.jpg" alt="slide 1" />
@@ -100,6 +110,14 @@
                 المحتاجة لنشر السعادة والأمل في قلوب الجميع. انضم إلينا وساهم في
                 بناء مستقبل أفضل للجميع.
               </p>
+              <div class="content-btn">
+                <a href="" class="donate-btn btn-default">
+                  <div class="btn-icon">
+                    <img src="assets/heart-icon.svg" alt="" />
+                  </div>
+                  <span>تبرع الآن</span>
+                </a>
+              </div>
             </div>
             <div class="slide-img-container">
               <img src="assets/slide-image-2.jpg" alt="slide 2" />
@@ -117,6 +135,14 @@
                 لضمان حياة كريمة وصحة أفضل للجميع. كن جزءًا من رسالتنا الإنسانية
                 وساهم في تحسين جودة الحياة.
               </p>
+              <div class="content-btn">
+                <a href="" class="donate-btn btn-default">
+                  <div class="btn-icon">
+                    <img src="assets/heart-icon.svg" alt="" />
+                  </div>
+                  <span>تبرع الآن</span>
+                </a>
+              </div>
             </div>
             <div class="slide-img-container">
               <img src="assets/slide-image-4.jpg" alt="slide 4" />
@@ -135,7 +161,10 @@
       <!-- End Main Landing Section -->
 
       <!-- Start About US -->
-      <section class="main-content-section about-section" id="about-us">
+      <section
+        class="main-content-section about-section bg-pattern-1 bg-pattern-light"
+        id="about-us"
+      >
         <div class="container">
           <div class="section-heading">
             <h2>من نحن</h2>
@@ -162,13 +191,28 @@
                 والمحتاجين، لنعزز بذلك روح الإيجابية والتضامن في مجتمعنا. انضم
                 إلينا اليوم وكن شريكًا في بناء مستقبل أفضل وأكثر إشراقًا للجميع.
               </p>
+              <div class="volunteering-btn">
+                <a href="" class="donate-btn btn-default dark-btn">
+                  <div class="btn-icon">
+                    <img src="assets/heart-icon.svg" alt="" />
+                  </div>
+                  <span> تطوع وشارك الآن </span>
+                </a>
+              </div>
             </div>
             <div class="imgs-conatiner">
-              <div class="img-box">
-                <img src="assets/group.jpg" alt="group 1" />
+              <div class="img-boxes-conatainer">
+                <div class="img-box">
+                  <img src="assets/group.jpg" alt="group 1" />
+                </div>
+                <div class="img-box">
+                  <img src="assets/group-3.jpg" alt="group 3" />
+                </div>
               </div>
-              <div class="img-box">
-                <img src="assets/group-2.jpg" alt="group 2" />
+              <div class="img-boxes-conatainer">
+                <div class="img-box">
+                  <img src="assets/group-2.jpg" alt="group 2" />
+                </div>
               </div>
             </div>
           </div>
@@ -178,9 +222,21 @@
 
       <!-- Start Our Achievement -->
       <section
-        class="main-content-section achievement-section"
+        class="main-content-section achievement-section bg-pattern-2 bg-pattern-dark"
         id="achievement"
       >
+        <div class="light-img-box lg-light right-light">
+          <img src="assets/light-2.png" alt="light 1" />
+        </div>
+        <div class="light-img-box md-light right-light">
+          <img src="assets/light-2.png" alt="light 2" />
+        </div>
+        <div class="light-img-box md-light left-light">
+          <img src="assets/light-2.png" alt="light 2" />
+        </div>
+        <div class="light-img-box lg-light left-light">
+          <img src="assets/light-2.png" alt="light 1" />
+        </div>
         <div class="container">
           <div class="section-heading">
             <h2>أرقام وانجازات</h2>
@@ -221,9 +277,216 @@
         </div>
       </section>
       <!-- End Our Achievement -->
+
+      <!-- Start Events-Projects -->
+      <section
+        class="main-content-section events-projects-section bg-pattern-1 bg-pattern-light"
+        id="events-projects"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <h2>المناسبات والمشاريع</h2>
+            <span class="title-line">
+              <img src="assets/title-underline.png" alt="" />
+            </span>
+          </div>
+          <ul class="events-projects-filter">
+            <li class="filter-option active" data-option="all">الكل</li>
+            <li class="filter-option" data-option="medical">طبي</li>
+            <li class="filter-option" data-option="education">دراسي</li>
+            <li class="filter-option" data-option="watering">سقاية</li>
+            <li class="filter-option" data-option="mosque">بناء مساجد</li>
+            <li class="filter-option" data-option="help">مساعدات</li>
+          </ul>
+          <div class="section-body">
+            <!-- Event Box -->
+            <div class="event-box" data-type="medical">
+              <figure class="event-img-box">
+                <img src="assets/medical-1.jpg" alt="Medical 1" />
+              </figure>
+              <div class="box-content">
+                <h5>حملة رعاية طبية</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    أفريقيا
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    01/03/2024
+                  </span>
+                </div>
+                <p>
+                  نسعى من خلال هذه الحملة إلى تقديم الرعاية الطبية والمساعدات
+                  العلاجية للأسر المحتاجة في أفريقيا، لضمان حياة كريمة وصحة أفضل
+                  للجميع.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Box -->
+            <div class="event-box" data-type="education">
+              <figure class="event-img-box">
+                <img src="assets/education-3.jpg" alt="Education 1" />
+              </figure>
+              <div class="box-content">
+                <h5>مشروع بناء المدارس</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    وسط أفريقيا
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    01/08/2023
+                  </span>
+                </div>
+                <p>
+                  نعمل على بناء وتجهيز مدارس في المناطق النائية لدعم التعليم
+                  وتوفير بيئة تعليمية مناسبة للأطفال.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Box -->
+            <div class="event-box" data-type="watering">
+              <figure class="event-img-box">
+                <img src="assets/watering-3.jpg" alt="Watering 1" />
+              </figure>
+              <div class="box-content">
+                <h5>مشروع سقاية وإدخال الماء</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    السودان
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    27/10/2023
+                  </span>
+                </div>
+                <p>
+                  تهدف هذه الحملة إلى توفير المياه النظيفة والآمنة للسكان في
+                  دولة السودان، وتحسين جودة الحياة والبيئة المحيطة.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Box -->
+            <div class="event-box" data-type="mosque">
+              <figure class="event-img-box">
+                <img src="assets/mosque-1.jpg" alt="mosque 1" />
+              </figure>
+              <div class="box-content">
+                <h5>بناء المساجد والاهتمام بها</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    شمال أفريقيا
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    03/02/2024
+                  </span>
+                </div>
+                <p>
+                  يهدف هذا المشروع إلى بناء مساجد جديدة وترميم المساجد القديمة،
+                  بالإضافة إلى الاهتمام بنظافتها، لخدمة المجتمعات في شمال
+                  أفريقيا وتوفير بيئة دينية مناسبة ونظيفة للمصلين.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Box -->
+            <div class="event-box" data-type="help">
+              <figure class="event-img-box">
+                <img src="assets/help-1.jpg" alt="help 1" />
+              </figure>
+              <div class="box-content">
+                <h5>حملة مساعدة الأسر والأطفال</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    أفريقيا
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    01/01/2022
+                  </span>
+                </div>
+                <p>
+                  تهدف هذه الحملة إلى تقديم المساعدات الضرورية للأسر والأطفال في
+                  أفريقيا، من خلال توفير الغذاء والمأوى والرعاية الصحية
+                  الأساسية، لضمان حياة كريمة ومستقبل أفضل لهم.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Box -->
+            <div class="event-box" data-type="">
+              <figure class="event-img-box">
+                <img src="assets/medical-3.jpeg" alt="Medical 1" />
+              </figure>
+              <div class="box-content">
+                <h5>حملة رعاية طبية</h5>
+                <div class="event-date-location-box">
+                  <span class="location">
+                    <img src="assets/location.svg" alt="clock icon" />
+                    أفريقيا
+                  </span>
+                  <span class="date">
+                    <img src="assets/clock.svg" alt="clock icon" />
+                    01/09/2023
+                  </span>
+                </div>
+                <p>
+                  نسعى من خلال هذه الحملة إلى تقديم الرعاية الطبية والمساعدات
+                  العلاجية للأسر المحتاجة في أفريقيا، لضمان حياة كريمة وصحة أفضل
+                  للجميع.
+                </p>
+                <div class="box-btn">
+                  <a href="" class="btn-default no-heart dark-btn">
+                    <span> قراءة المزيد </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="events-btn">
+            <a href="" class="btn-default no-heart dark-btn">
+              <span> عرض الكل </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- End Events-Projects -->
     </main>
     <!-- End Main -->
-    <!-- swiper slider -->
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
