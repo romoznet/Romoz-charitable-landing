@@ -95,20 +95,6 @@ $(document).ready(function () {
   });
 });
 
-// Toggle the sticky header postion
-let header = document.querySelector("header");
-window.addEventListener("scroll", () => {
-  if (this.scrollY > 500) {
-    header.classList.add("sticky");
-    header.style.boxShadow = "0 0 2px 1px rgba(0, 0, 0, 0.2)";
-    header.style.backgroundColor = "#fefefe";
-  } else {
-    header.classList.remove("sticky");
-    header.style.boxShadow = "none";
-    header.style.backgroundColor = "transparent";
-  }
-});
-
 // Toggle the active navabr link
 const navLinks = document.querySelectorAll(`header .container .nav-list li`);
 
@@ -178,4 +164,30 @@ window.addEventListener("load", function () {
     counter.innerText = "0";
     observer.observe(counter);
   });
+});
+
+// Parteners Slider
+var partenersSwiper = new Swiper(".partnersSwiper", {
+  loop: true,
+  slidesPerView: 2,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    },
+  },
 });
