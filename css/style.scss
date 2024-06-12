@@ -1345,6 +1345,208 @@ main {
   }
   // End Contact
 }
+// End Main
+
+// Start Footer
+footer {
+  display: flex;
+  width: 100%;
+  padding: 40px 80px;
+  flex-direction: column;
+  align-items: center;
+
+  &::before {
+    content: none;
+  }
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+  .container {
+    z-index: 9999999;
+    display: flex;
+    flex-direction: row;
+    gap: 0 15px;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    color: $whiteColor;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .about_company {
+      display: flex;
+      width: 368px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      .footerLogo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+        cursor: pointer;
+        @media (max-width: 768px) {
+          width: 100%;
+          align-items: center;
+        }
+        img {
+          height: 50px;
+          object-fit: cover;
+        }
+      }
+      .about-content {
+        align-self: stretch;
+        color: $whiteColor !important;
+        text-align: right;
+        font-family: "IBMRegular";
+        font-style: normal;
+        font-weight: 400;
+        position: relative;
+        text-wrap: balance;
+      }
+    }
+    .footerLinks {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      flex: 1 0 0;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      h3 {
+        color: $mainColor;
+        text-align: right;
+        font-family: "IBMRegular";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+      }
+      .footerNavList {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        gap: 8px;
+        align-self: stretch;
+        flex-wrap: wrap;
+        li {
+          display: flex;
+          min-width: 150px;
+          padding: 4px 8px;
+          justify-content: flex-end;
+          align-items: center;
+          a {
+            transition: 0.3s ease-in-out;
+
+            flex: 1 0 0;
+            color: $whiteColor;
+            text-align: right;
+            font-family: "IBMRegular";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .support {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      flex: 1 0 0;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      h3 {
+        color: $mainColor;
+        text-align: right;
+        font-family: "IBMRegular";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+      }
+      .support-contact-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+        li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          p {
+            color: $whiteColor;
+            text-align: right;
+            font-family: "IBMRegular";
+            font-style: normal;
+            font-weight: 400;
+          }
+          img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+          }
+        }
+      }
+      .support-contact-social {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        align-self: stretch;
+        position: relative;
+        @media (max-width: 768px) {
+          width: 100%;
+          justify-content: center;
+        }
+        li {
+          display: flex;
+          position: relative;
+          width: 40px;
+          height: 40px;
+          flex-direction: column;
+          align-items: flex-start;
+          cursor: pointer;
+          a {
+            transition: 0.3s ease-in-out;
+
+            display: flex;
+            width: 40px;
+            height: 40px;
+            padding: 12px 13px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            border: 1px solid $whiteColor;
+            img {
+              width: 40px;
+              height: 40px;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// End Footer
 
 .btn-default {
   padding: 8px 24px;

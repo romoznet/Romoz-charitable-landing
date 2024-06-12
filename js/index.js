@@ -158,7 +158,6 @@ window.addEventListener("load", function () {
   );
 
   counters.forEach((counter) => {
-    console.log(+counter.innerHTML);
     const targetValue = counter.innerText;
     counter.setAttribute("data-target", targetValue);
     counter.innerText = "0";
