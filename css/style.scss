@@ -468,8 +468,8 @@ main {
       width: 100%;
       height: 100%;
       position: relative;
-      background-image: url("../assets/bg-earth.png");
-      background-size: cover;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4) , rgba(0, 0, 0, 0.706)) , url("../assets/bg-earth.png");
+      background-size:  cover;
       background-repeat: no-repeat;
       @media screen and (max-width: 767px) {
         background-image: none;
