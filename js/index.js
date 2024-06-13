@@ -74,12 +74,12 @@ $(document).ready(() => {
     spaceBetween: 0,
     centeredSlides: true,
     speed: 500,
-    effect: "fade",
+    // effect: "fade",
     loop: true,
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    // },
     pagination: {
       el: ".mainSliderPagination",
       clickable: true,
