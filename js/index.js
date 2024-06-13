@@ -1,64 +1,64 @@
-$(document).ready(function () {
-  // favicon based on color scheme
+$(document).ready(() => {
+  // Set favicon based on color scheme
   function setFavicon() {
     const darkFavicon = $("#browser-dark-theme-favicon");
     const lightFavicon = $("#browser-light-theme-favicon");
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     if (darkFavicon.length > 0 && lightFavicon.length > 0) {
-      const isDarkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
       if (isDarkMode) {
         lightFavicon.removeAttr("href");
-        // lightFavicon.attr("disabled", "disabled");
       } else {
         darkFavicon.removeAttr("href");
-        // darkFavicon.attr("disabled", "disabled");
       }
     }
   }
+
   setFavicon();
-  // listen for changes in the color scheme and update the favicon
+
+  // Listen for changes in the color scheme and update the favicon
   window
     .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", () => {
-      setFavicon();
-    });
+    .addEventListener("change", setFavicon);
 
-  //spinner
+  // Spinner
   $(".preloader").delay(1000).fadeOut(300);
-  //aos Delay
+
+  // AOS Delay
   if ($(window).width() > 768) {
     $("section").each(function () {
       const sectionDivs = $(this).find("[data-aos]");
       sectionDivs.each(function (index) {
-        // Check if data-aos-delay is not already set
         if (!$(this).attr("data-aos-delay")) {
           $(this).attr("data-aos-delay", (index + 1) * 100);
         }
       });
     });
   }
-  // aos
+
+  // AOS Initialization
   AOS.init({
     offset: 20,
     delay: 50,
     duration: 750,
     once: true,
   });
-  // lozad
+
+  // Lozad
   const observer = lozad(".lazy", {
-    loaded: function (el) {
+    loaded: (el) => {
       el.parentNode.classList.add("loaded");
     },
   });
   observer?.observe();
 
+  // Toggle nav menu
   const $menuIconBox = $("header .container .menu-icon");
   const $menuIcon = $("header .container .menu-icon img");
   const $navMenu = $("header .container .nav-list");
 
-  // Toggle nav menu
-  $menuIconBox.on("click", function () {
+  $menuIconBox.on("click", () => {
     $navMenu.toggleClass("open");
     $menuIcon.attr(
       "src",
@@ -68,7 +68,7 @@ $(document).ready(function () {
     );
   });
 
-  // Main landing slider
+  // Main Slider
   const mainSlider = new Swiper(".mainSlider", {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -93,33 +93,35 @@ $(document).ready(function () {
       onlyInViewport: true,
     },
   });
-});
 
-// Toggle the active navabr link
-const navLinks = document.querySelectorAll(`header .container .nav-list li`);
+  // Toggle active navbar link
+  const navLinks = document.querySelectorAll(`header .container .nav-list li`);
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.forEach((linkItem) => {
-      linkItem.classList.remove("active");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((linkItem) => {
+        linkItem.classList.remove("active");
+      });
+      link.classList.add("active");
     });
-    link.classList.add("active");
   });
-});
 
-window.addEventListener("load", () => {
-  const hash = window.location.hash.split("#")[1];
-  if (hash) {
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.children[0].href.split("#")[1] === hash)
-        link.classList.add("active");
-    });
-  }
-});
+  // Scroll to section on page load
+  window.addEventListener("load", () => {
+    const hash = window.location.hash.substring(1);
+    const section = document.getElementById(hash);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
 
-// animate the count of the achievments
-window.addEventListener("load", function () {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.children[0].href.split("#")[1] === hash)
+          link.classList.add("active");
+      });
+    }
+  });
+
+  // Animate the count of the achievements
   const counters = document.querySelectorAll(".item-quntity");
   const speed = 200; // Adjust speed as necessary
 
@@ -127,8 +129,6 @@ window.addEventListener("load", function () {
     const updateCount = () => {
       const target = +counter.getAttribute("data-target");
       const count = +counter.innerText;
-
-      // Lower increment to make animation smoother
       const increment = target / speed;
 
       if (count < target) {
@@ -142,13 +142,13 @@ window.addEventListener("load", function () {
     updateCount();
   }
 
-  const observer = new IntersectionObserver(
+  const achievmentsObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const counter = entry.target;
           animateCount(counter);
-          observer.unobserve(counter);
+          achievmentsObserver.unobserve(counter);
         }
       });
     },
@@ -161,32 +161,31 @@ window.addEventListener("load", function () {
     const targetValue = counter.innerText;
     counter.setAttribute("data-target", targetValue);
     counter.innerText = "0";
-    observer.observe(counter);
+    achievmentsObserver.observe(counter);
   });
-});
 
-// Parteners Slider
-var partenersSwiper = new Swiper(".partnersSwiper", {
-  loop: true,
-  slidesPerView: 2,
-  spaceBetween: 30,
-  loop: true,
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 1,
-      spaceBetween: 20,
+  // Partners Slider
+  var partnersSwiper = new Swiper(".partnersSwiper", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
     },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 40,
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
     },
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 50,
-    },
-  },
+  });
 });
