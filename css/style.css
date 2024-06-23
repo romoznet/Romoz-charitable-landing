@@ -473,6 +473,20 @@ main .mainSlider {
   position: relative;
   display: flex;
 }
+main .mainSlider .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("../assets/bg-earth.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 767px) {
+  main .mainSlider .swiper-wrapper {
+    background-image: none;
+    background-color: #fefefe;
+  }
+}
 main .mainSlider .swiper-wrapper .swiper-slide {
   min-height: 100dvh;
   position: relative;

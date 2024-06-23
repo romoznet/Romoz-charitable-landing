@@ -121,6 +121,34 @@ $(document).ready(() => {
     }
   });
 
+  // Function to toggle active class on nav links
+  const sections = document.querySelectorAll("section");
+  function toggleActiveNavLinks() {
+    let scrollPosition =
+      document.documentElement.scrollTop || document.body.scrollTop;
+
+    sections.forEach((section) => {
+      if (
+        scrollPosition >= section.offsetTop - 100 &&
+        scrollPosition < section.offsetTop + section.offsetHeight - 100
+      ) {
+        const id = section.getAttribute("id");
+        document
+          .querySelectorAll("header .container .nav-list li")
+          .forEach((navLink) => {
+            navLink.classList.remove("active");
+            if (navLink.children[0].getAttribute("href").slice(1) === id) {
+              navLink.classList.add("active");
+            }
+          });
+      }
+    });
+  }
+  window.addEventListener("scroll", toggleActiveNavLinks);
+
+  // Initial call to set initial active link
+  toggleActiveNavLinks();
+
   // Animate the count of the achievements
   const counters = document.querySelectorAll(".item-quntity");
   const speed = 200; // Adjust speed as necessary
