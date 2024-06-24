@@ -68,18 +68,23 @@ $(document).ready(() => {
     );
   });
 
-  // Main Slider
-  const mainSlider = new Swiper(".mainSlider", {
+  // item Details Slider
+  var mainSliderThumbs = new Swiper(".mainSlider .thumbs", {
     slidesPerView: 1,
-    spaceBetween: 0,
-    centeredSlides: true,
+    watchSlidesProgress: true,
+    
+  });
+
+  // Main Slider
+  var mainSlider = new Swiper(".mainSlider .slider", {
+    slidesPerView: 1,
+    effect: "fade",
     speed: 500,
-    // effect: "fade",
     loop: true,
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: ".mainSliderPagination",
       clickable: true,
@@ -88,11 +93,9 @@ $(document).ready(() => {
       nextEl: ".mainSliderNext",
       prevEl: ".mainSliderPrev",
     },
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
   });
+  mainSliderThumbs.controller.control = mainSlider;
+  mainSlider.controller.control = mainSliderThumbs;
 
   // Toggle active navbar link
   const navLinks = document.querySelectorAll(`header .container .nav-list li`);

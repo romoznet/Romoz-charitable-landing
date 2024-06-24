@@ -472,96 +472,59 @@ main .mainSlider {
   width: 100%;
   position: relative;
   display: flex;
+  height: 100dvh;
 }
-main .mainSlider .swiper-wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-image: url("../assets/bg-earth.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-@media screen and (max-width: 767px) {
-  main .mainSlider .swiper-wrapper {
-    background-image: none;
-    background-color: #fefefe;
-  }
-}
-main .mainSlider .swiper-wrapper .swiper-slide {
-  min-height: 100dvh;
-  position: relative;
+main .mainSlider .swiper {
   display: flex;
-}
-@media screen and (max-width: 767px) {
-  main .mainSlider .swiper-wrapper .swiper-slide {
-    flex-direction: column;
-  }
-}
-main .mainSlider .swiper-wrapper .swiper-slide .slide-img-container {
   flex: 1;
-  display: flex;
-  position: relative;
-  overflow: hidden;
 }
-main .mainSlider .swiper-wrapper .swiper-slide .slide-img-container img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: 0.3s ease-in-out;
-  animation: imageSwappingHide 0.5s;
-}
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content {
-  animation: contentSwappingHide 0.5s;
-  flex: 1;
-  transition: 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../assets/earth-image.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content .inner {
+main .mainSlider .slider .swiper-slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 16px;
   padding: 32px;
+  background-color: #ffffff;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../assets/earth-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content .inner .slider-content-heading {
-  color: #ffffff;
+main .mainSlider .slider .swiper-slide .heading {
+  color: #1f1f1f;
   font-size: 60px;
   font-weight: bold;
   text-wrap: nowrap;
 }
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content .inner .slider-content-heading span {
+main .mainSlider .slider .swiper-slide .heading span {
   color: #f7941d;
   text-wrap: nowrap;
 }
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content .inner .slider-content-paragraph {
-  color: #ffffff;
+main .mainSlider .slider .swiper-slide .paragraph {
+  color: #1f1f1f;
   font-size: 15px;
   text-wrap: balance;
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-main .mainSlider .swiper-wrapper .swiper-slide .slider-content .inner .content-btn {
-  width: 100%;
+main .mainSlider .slider .swiper-slide .btn-default {
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
   display: flex;
   justify-content: flex-start;
   transition: 0.3s ease-in-out;
-  margin-top: 40px;
 }
-main .mainSlider .swiper-wrapper .swiper-slide.swiper-slide-active .slide-img-container img {
-  animation: imageSwappingShow 0.5s;
-}
-main .mainSlider .swiper-wrapper .swiper-slide.swiper-slide-active .slider-content {
-  animation: contentSwappingShow 0.5s;
+main .mainSlider .thumbs img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.3s ease-in-out;
+  position: relative;
 }
 main .mainSlider .swiperControl {
-  width: 50%;
+  width: 100%;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -601,7 +564,7 @@ main .mainSlider .swiperControl .swiperBtns .mainSliderNext {
   align-items: center;
   flex-shrink: 0;
   border-radius: 83.333px;
-  border: 1px solid #ffffff;
+  border: 1px solid #1f1f1f;
   cursor: pointer;
 }
 main .mainSlider .swiperControl .swiperBtns .mainSliderPrev::after,
@@ -614,6 +577,7 @@ main .mainSlider .swiperControl .swiperBtns .mainSliderNext::after {
   background-repeat: no-repeat;
   background-size: cover;
   transition: 0.3s ease-in-out;
+  filter: brightness(0);
 }
 @media (max-width: 768px) {
   main .mainSlider .swiperControl .swiperBtns .mainSliderPrev::after,
@@ -649,49 +613,48 @@ main .mainSlider .swiperControl .swiper-pagination {
 main .mainSlider .swiperControl .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  filter: drop-shadow(0 0 1px #efefef);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #f7941d;
   cursor: pointer;
 }
 main .mainSlider .swiperControl .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: #ffffff;
-  filter: drop-shadow(0 0 1px #fefefe);
+  background-color: #f7941d;
 }
-@keyframes imageSwappingHide {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+main .mainSlider .swiper-slide-active img {
+  animation: imageSwappingShow 0.5s;
+  z-index: 2;
 }
-@keyframes imageSwappingShow {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
+main .mainSlider .swiper-slide-active .heading {
+  animation: fadeInUp 1s 0s both;
 }
-@keyframes contentSwappingHide {
-  0% {
-    transform: translateX(0%);
+main .mainSlider .swiper-slide-active .paragraph {
+  animation: fadeInUp 1s 0.5s both;
+}
+main .mainSlider .swiper-slide-active a {
+  animation: fadeInUp 1s 1s both;
+}
+@keyframes fadeInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  100% {
-    transform: translateX(100%);
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
-@keyframes contentSwappingShow {
-  0% {
+@keyframes slideInRight {
+  from {
     transform: translateX(100%);
+    opacity: 0;
   }
-  100% {
-    transform: translateX(0%);
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 main .main-content-section {
   width: 100%;
-  padding: 80px 0;
+  padding: 100px 0;
   background-color: #fefefe;
 }
 main .main-content-section:nth-of-type(odd) .section-heading {
@@ -818,6 +781,7 @@ main .about-section .container .section-body .content-container .volunteering-bt
 main .achievement-section {
   width: 100%;
   position: relative;
+  padding: 100px 0;
 }
 main .achievement-section .light-img-box {
   position: absolute;
@@ -859,13 +823,13 @@ main .achievement-section .container {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 main .achievement-section .container .section-body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 80px;
   position: relative;
 }
 main .achievement-section .container .section-body .sub-title {
@@ -873,8 +837,8 @@ main .achievement-section .container .section-body .sub-title {
   text-align: center;
   text-wrap: balance;
   color: #ffffff;
-  font-weight: bold;
-  font-size: 28px;
+  width: min(100%, 800px);
+  margin: 0 auto;
 }
 main .achievement-section .container .section-body .achievement-list {
   width: 100%;
@@ -893,7 +857,7 @@ main .achievement-section .container .section-body .achievement-list .list-item 
   position: relative;
 }
 main .achievement-section .container .section-body .achievement-list .list-item h5 {
-  font-size: 68px;
+  font-size: 40px;
   font-weight: 800;
   position: relative;
   color: rgba(247, 149, 29, 0.8);
@@ -1605,10 +1569,10 @@ footer .container .support .support-contact-social li a img {
   left: 0;
 }
 .bg-pattern-1::before, .bg-pattern-1.bg-pattern-light::before {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 .bg-pattern-1.bg-pattern-dark::before {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .bg-pattern-2 {
@@ -1628,10 +1592,10 @@ footer .container .support .support-contact-social li a img {
   left: 0;
 }
 .bg-pattern-2::before, .bg-pattern-2.bg-pattern-light::before {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 .bg-pattern-2.bg-pattern-dark::before {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 @keyframes contentSwapping {

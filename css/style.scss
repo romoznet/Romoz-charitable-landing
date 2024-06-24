@@ -450,101 +450,68 @@ main {
     width: 100%;
     position: relative;
     display: flex;
+    height: 100dvh;
 
-    .swiper-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      background-image: url("../assets/bg-earth.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      @media screen and (max-width: 767px) {
-        background-image: none;
-        background-color: #fefefe;
-      }
-
+    .swiper {
+      display: flex;
+      flex: 1;
+    }
+    .slider {
       .swiper-slide {
-        min-height: 100dvh;
-        position: relative;
-        
         display: flex;
-        @media screen and (max-width: 767px) {
-          flex-direction: column;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+        padding: 32px;
+        background-color: $whiteColor;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1)
+          ),
+          url("../assets/earth-image.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        .heading {
+          color: $darkColor;
+          font-size: 60px;
+          font-weight: bold;
+          text-wrap: nowrap;
+          span {
+            color: $mainColor;
+            text-wrap: nowrap;
+          }
         }
-        .slide-img-container {
-          flex: 1;
-          display: flex;
-          position: relative;
+        .paragraph {
+          color: $darkColor;
+          font-size: 15px;
+          text-wrap: balance;
+          -webkit-line-clamp: 3;
           overflow: hidden;
-          img {
-            width: 100%;
-            object-fit: cover;
-            transition: $transition;
-            animation: imageSwappingHide .5s ;
-          }
         }
-        .slider-content {
-          animation: contentSwappingHide .5s ;
-          flex: 1;
-          transition: $transition;
+        .btn-default {
+          width: fit-content;
+          position: relative;
           display: flex;
-          justify-content: center;
-          align-items: center;
-          background-image: linear-gradient(
-              rgba(0, 0, 0, 0.1),
-              rgba(0, 0, 0, 0.1)
-            ),
-            url("../assets/earth-image.jpg");
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          .inner {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 16px;
-            padding: 32px;
-            .slider-content-heading {
-              color: $whiteColor;
-              font-size: 60px;
-              font-weight: bold;
-              text-wrap: nowrap;
-              span {
-                color: $mainColor;
-                text-wrap: nowrap;
-              }
-            }
-            .slider-content-paragraph {
-              color: $whiteColor;
-              font-size: 15px;
-              text-wrap: balance;
-              -webkit-line-clamp: 3;
-              overflow: hidden;
-            }
-            .content-btn {
-              width: 100%;
-              position: relative;
-              display: flex;
-              justify-content: flex-start;
-              transition: $transition;
-              margin-top: 40px;
-            }
-          }
-        }
-        &.swiper-slide-active {
-          .slide-img-container {
-            img{
-              animation: imageSwappingShow .5s ;
-            }
-          }
-          .slider-content {
-            animation: contentSwappingShow .5s ;
-          }
+          justify-content: flex-start;
+          transition: $transition;
         }
       }
     }
+    .thumbs {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $transition;
+        // animation: imageSwappingHide 0.5s;
+        position: relative;
+      }
+    }
+
     .swiperControl {
-      width: 50%;
+      width: 100%;
       position: absolute;
       bottom: 0;
       right: 0;
@@ -578,7 +545,7 @@ main {
           align-items: center;
           flex-shrink: 0;
           border-radius: 83.333px;
-          border: 1px solid $whiteColor;
+          border: 1px solid $darkColor;
           cursor: pointer;
           &::after {
             content: "";
@@ -589,6 +556,7 @@ main {
             background-repeat: no-repeat;
             background-size: cover;
             transition: $transition;
+            filter: brightness(0);
             @media (max-width: 768px) {
               width: 15px;
               height: 15px;
@@ -623,59 +591,57 @@ main {
         .swiper-pagination-bullet {
           width: 12px;
           height: 12px;
-          filter: drop-shadow(0 0 1px #efefef);
-          background-color: rgba(255, 255, 255, 0.6);
+          background-color: $mainColor;
           cursor: pointer;
           &.swiper-pagination-bullet-active {
-            background-color: $whiteColor;
-            filter: drop-shadow(0 0 1px #fefefe);
+            background-color: $mainColor;
           }
         }
       }
     }
+    .swiper-slide-active {
+      img {
+        animation: imageSwappingShow 0.5s;
+        z-index: 2;
+      }
+      .heading {
+        animation: fadeInUp 1s 0s both;
+      }
+      .paragraph {
+        animation: fadeInUp 1s 0.5s both;
+      }
+      a {
+        animation: fadeInUp 1s 1s both;
+      }
+      @keyframes fadeInUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
 
-    @keyframes imageSwappingHide {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(100%);
-        
-      }
-    }
-    @keyframes imageSwappingShow {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(0%);
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
     }
-    @keyframes contentSwappingHide {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(100%);
-        
-      }
-    }
-    @keyframes contentSwappingShow {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(0%);
-      }
-    }
-
-    
   }
+
   // End Slider
   // Start the gloabl main section style
   .main-content-section {
     width: 100%;
-    padding: 80px 0;
+    padding: 100px 0;
     background-color: #fefefe;
     &:nth-of-type(odd) {
       .section-heading {
@@ -799,6 +765,7 @@ main {
   .achievement-section {
     width: 100%;
     position: relative;
+    padding: 100px 0;
     .light-img-box {
       position: absolute;
       top: 0;
@@ -836,20 +803,21 @@ main {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 20px;
       .section-body {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 80px;
         position: relative;
         .sub-title {
           line-height: 1.6;
           text-align: center;
           text-wrap: balance;
           color: $whiteColor;
-          font-weight: bold;
-          font-size: 28px;
+          width: min(100%, 800px);
+          margin: 0 auto;
+
         }
         .achievement-list {
           width: 100%;
@@ -866,7 +834,7 @@ main {
             align-items: center;
             position: relative;
             h5 {
-              font-size: 68px;
+              font-size: 40px;
               font-weight: 800;
               position: relative;
               color: $mainColor80;
@@ -1557,12 +1525,12 @@ footer {
   &,
   &.bg-pattern-light {
     &::before {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
     }
   }
   &.bg-pattern-dark {
     &::before {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.85);
     }
   }
 }
@@ -1584,16 +1552,15 @@ footer {
   &,
   &.bg-pattern-light {
     &::before {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
     }
   }
   &.bg-pattern-dark {
     &::before {
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.85);
     }
   }
 }
-
 
 @keyframes contentSwapping {
   0% {
