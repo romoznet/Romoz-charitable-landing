@@ -371,13 +371,11 @@ header {
             }
           }
           &.active {
-        
             a {
               color: $mainColor !important;
             }
           }
         }
-        
       }
       li {
         display: flex;
@@ -465,6 +463,15 @@ main {
       flex: 1;
     }
     .slider {
+      @media (max-width: 991px) {
+        z-index: 20;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
       .swiper-slide {
         display: flex;
         flex-direction: column;
@@ -480,12 +487,25 @@ main {
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        opacity: 0 !important;
+
+        &.swiper-slide-visible {
+          opacity: 1 !important;
+        }
+
+        @media (max-width: 991px) {
+          background-color: transparent;
+          background-image: none;
+        }
 
         .heading {
           color: $darkColor;
           font-size: 60px;
           font-weight: bold;
           text-wrap: nowrap;
+          @media (max-width: 991px) {
+            color: $whiteColor;
+          }
           span {
             color: $mainColor;
             text-wrap: nowrap;
@@ -497,6 +517,9 @@ main {
           text-wrap: balance;
           -webkit-line-clamp: 3;
           overflow: hidden;
+          @media (max-width: 991px) {
+            color: $whiteColor;
+          }
         }
         .btn-default {
           width: fit-content;
@@ -508,6 +531,23 @@ main {
       }
     }
     .thumbs {
+      @media (max-width: 991px) {
+        width: 100%;
+        z-index: 10;
+
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 15;
+        }
+      }
       img {
         width: 100%;
         height: 100%;
@@ -529,6 +569,9 @@ main {
       align-self: stretch;
       padding: 16px;
       transition: $transition;
+      @media (max-width: 991px) {
+        z-index: 25;
+      }
       @media screen and (max-width: 767px) {
         width: 100%;
       }
@@ -554,6 +597,9 @@ main {
           flex-shrink: 0;
           border-radius: 83.333px;
           border: 1px solid $darkColor;
+          @media (max-width: 991px) {
+            border-color: $whiteColor;
+          }
           cursor: pointer;
           &::after {
             content: "";
@@ -565,6 +611,9 @@ main {
             background-size: cover;
             transition: $transition;
             filter: brightness(0);
+            @media (max-width: 991px) {
+              filter: brightness(1);
+            }
             @media (max-width: 768px) {
               width: 15px;
               height: 15px;
@@ -600,9 +649,15 @@ main {
           width: 12px;
           height: 12px;
           background-color: $mainColor;
+          @media (max-width: 991px) {
+            background-color: #fefefe;
+          }
           cursor: pointer;
           &.swiper-pagination-bullet-active {
             background-color: $mainColor;
+            @media (max-width: 991px) {
+              background-color: $whiteColor;
+            }
           }
         }
       }
@@ -649,7 +704,7 @@ main {
   // Start the gloabl main section style
   .main-content-section {
     width: 100%;
-    padding: 100px 0;
+    padding: 80px 0;
     background-color: #fefefe;
     &:nth-of-type(odd) {
       .section-heading {
@@ -778,7 +833,7 @@ main {
       position: absolute;
       top: 0;
       display: flex;
-      z-index: 99999;
+      z-index: 1000;
       animation: lightBounce 3s infinite ease-in-out alternate;
       overflow: hidden;
       @media screen and (max-width: 767px) {
@@ -818,6 +873,7 @@ main {
         flex-direction: column;
         gap: 80px;
         position: relative;
+        z-index: 1005;
         .sub-title {
           line-height: 1.6;
           text-align: center;
@@ -825,7 +881,6 @@ main {
           color: $whiteColor;
           width: min(100%, 800px);
           margin: 0 auto;
-
         }
         .achievement-list {
           width: 100%;
@@ -874,6 +929,12 @@ main {
       flex-direction: column;
       gap: 40px;
       position: relative;
+      h2 {
+        color: $whiteColor;
+      }
+      .sub-title {
+        color: $whiteColor;
+      }
       .section-body {
         width: 100%;
         display: flex;
@@ -883,17 +944,17 @@ main {
         .donation-steps {
           width: 100%;
           display: flex;
-          gap: 16px;
           flex-wrap: wrap;
-          @media screen and (max-width: 767px) {
-            gap: 50px;
-          }
+          position: relative;
+          gap: 40px 24px;
           .step-line {
             width: 100%;
             height: 2px;
-            background-color: $mainColor;
-            position: relative;
-            @media screen and (max-width: 767px) {
+            background-color: $whiteColor;
+            position: absolute;
+            top: 0;
+            left: 0;
+            @media screen and (max-width: 991px) {
               display: none;
             }
           }
@@ -912,7 +973,7 @@ main {
               .step-index {
                 &::after {
                   height: 140px;
-                  @media screen and (max-width: 767px) {
+                  @media screen and (max-width: 991px) {
                     height: 100px;
                   }
                 }
@@ -922,19 +983,16 @@ main {
               width: 40px;
               height: 40px;
               border-radius: 50%;
-              background-color: $mainColor;
-              color: $whiteColor;
+              background-color: $whiteColor;
+              color: $mainColor;
               display: flex;
               align-items: center;
               justify-content: center;
               position: relative;
-              top: -40px;
               margin-bottom: 20px;
+              top: -20px;
               font-size: 20px;
               transition: $transition;
-              @media screen and (max-width: 767px) {
-                top: -20px;
-              }
               &::after {
                 content: "";
                 width: 2px;
@@ -943,11 +1001,12 @@ main {
                 top: 100%;
                 right: 50%;
                 transform: translateX(-50%);
-                background-color: #f7941d;
+                background-color: $whiteColor;
                 transition: $transition;
               }
             }
             .step-content {
+              flex: 1 0 0;
               padding: 24px;
               display: flex;
               flex-direction: column;
@@ -991,6 +1050,7 @@ main {
   .parteners-section {
     width: 100%;
     position: relative;
+    padding: 50px 0 !important;
     .container {
       position: relative;
       display: flex;
@@ -1237,6 +1297,16 @@ main {
                 }
               }
             }
+            .btn-box {
+              width: 100%;
+              padding: 0 16px;
+              display: flex;
+              justify-content: flex-end;
+
+              button {
+                width: 250px;
+              }
+            }
           }
         }
       }
@@ -1256,7 +1326,7 @@ footer {
     content: none;
   }
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 40px 8px;
   }
   .container {
     z-index: 9999999;
@@ -1295,6 +1365,7 @@ footer {
         img {
           height: 50px;
           object-fit: cover;
+          filter: brightness(0) invert(1);
         }
       }
       .about-content {
@@ -1306,6 +1377,11 @@ footer {
         font-weight: 400;
         position: relative;
         text-wrap: balance;
+
+        @media (max-width: 768px) {
+          text-align: center;
+          text-wrap: balance;
+        }
       }
     }
     .footerLinks {
@@ -1493,10 +1569,35 @@ footer {
     border: 1px solid $mainColor;
     &::after {
       left: 0;
-      background-color: $whiteColor;
+      background-color: $darkColor;
     }
     &::before {
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23f7941d' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    }
+  }
+  &.white-btn {
+    color: $darkColor;
+    background-color: $whiteColor;
+    z-index: 1000;
+
+    &::before {
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='black' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    }
+
+    &:hover {
+      color: $whiteColor;
+
+      &::before {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath fill='%23f7941d' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+      }
+
+      span {
+        color: $mainColor;
+      }
+      &::after {
+        background-color: $darkColor;
+      }
     }
   }
   &.dark-btn {
@@ -1541,6 +1642,11 @@ footer {
       background-color: rgba(0, 0, 0, 0.85);
     }
   }
+  &.bg-pattern-colored {
+    &::before {
+      background-color: $mainColor80;
+    }
+  }
 }
 .bg-pattern-2 {
   width: 100%;
@@ -1568,8 +1674,12 @@ footer {
       background-color: rgba(0, 0, 0, 0.85);
     }
   }
+  &.bg-pattern-colored {
+    &::before {
+      background-color: $mainColor80;
+    }
+  }
 }
-
 @keyframes contentSwapping {
   0% {
     opacity: 0;
