@@ -502,7 +502,7 @@ main {
           color: $darkColor;
           font-size: 60px;
           font-weight: bold;
-          text-wrap: nowrap;
+          text-wrap: balance;
           @media (max-width: 991px) {
             color: $whiteColor;
           }

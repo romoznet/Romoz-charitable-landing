@@ -519,7 +519,7 @@ main .mainSlider .slider .swiper-slide .heading {
   color: #1f1f1f;
   font-size: 60px;
   font-weight: bold;
-  text-wrap: nowrap;
+  text-wrap: balance;
 }
 @media (max-width: 991px) {
   main .mainSlider .slider .swiper-slide .heading {
