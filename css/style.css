@@ -491,6 +491,7 @@ main .mainSlider .swiper {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    text-align: center;
   }
 }
 main .mainSlider .slider .swiper-slide {
@@ -513,6 +514,7 @@ main .mainSlider .slider .swiper-slide.swiper-slide-visible {
   main .mainSlider .slider .swiper-slide {
     background-color: transparent;
     background-image: none;
+    align-items: center;
   }
 }
 main .mainSlider .slider .swiper-slide .heading {
@@ -524,6 +526,7 @@ main .mainSlider .slider .swiper-slide .heading {
 @media (max-width: 991px) {
   main .mainSlider .slider .swiper-slide .heading {
     color: #ffffff;
+    font-size: 40px;
   }
 }
 main .mainSlider .slider .swiper-slide .heading span {
@@ -774,6 +777,7 @@ main .about-section .container .section-body {
 @media screen and (max-width: 767px) {
   main .about-section .container .section-body {
     flex-direction: column-reverse;
+    text-align: center;
   }
 }
 main .about-section .container .section-body .imgs-conatiner {
@@ -1046,12 +1050,7 @@ main .donation-section .container .section-body .donation-steps .step .step-inde
   transition: 0.3s ease-in-out;
 }
 main .donation-section .container .section-body .donation-steps .step .step-content {
-<<<<<<< HEAD
-  padding: 32px 24px;
-=======
-  flex: 1 0 0;
   padding: 24px;
->>>>>>> 47d24163795f982821c0f0fd6fc6969feb8b404e
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1400,6 +1399,7 @@ footer .container .about_company {
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  text-align: start;
   align-self: stretch;
 }
 @media (max-width: 768px) {
@@ -1411,14 +1411,13 @@ footer .container .about_company .footerLogo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   cursor: pointer;
 }
 @media (max-width: 768px) {
   footer .container .about_company .footerLogo {
     width: 100%;
-    align-items: center;
   }
 }
 footer .container .about_company .footerLogo img {
@@ -1436,12 +1435,6 @@ footer .container .about_company .about-content {
   font-weight: 400;
   position: relative;
   text-wrap: balance;
-}
-@media (max-width: 768px) {
-  footer .container .about_company .about-content {
-    text-align: center;
-    text-wrap: balance;
-  }
 }
 footer .container .footerLinks {
   display: flex;
