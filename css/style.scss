@@ -717,6 +717,22 @@ main {
         position: relative;
         h2 {
           color: $whiteColor;
+
+          @media screen and (max-width: 767px) {
+            font-size: 36px;
+          }
+        }
+
+        .title-line {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            @media screen and (max-width: 767px) {
+              max-width: 80%;
+            }
+          }
         }
       }
     }
@@ -730,6 +746,10 @@ main {
         font-weight: 800;
         font-size: 48px;
         position: relative;
+
+        @media screen and (max-width: 767px) {
+          font-size: 36px;
+        }
       }
     }
   }
@@ -897,12 +917,16 @@ main {
           flex-wrap: wrap;
           .list-item {
             display: flex;
-            min-width: 200px;
+            min-width: 150px;
             flex: 1;
             flex-direction: column;
             gap: 4px;
             align-items: center;
             position: relative;
+            padding: 8px;
+            box-shadow: 0 0 2px 1px rgba(239, 239, 239, 0.4);
+            border-radius: 16px;
+
             h5 {
               font-size: 40px;
               font-weight: 800;
@@ -1059,6 +1083,11 @@ main {
     padding: 50px 0 !important;
     padding-bottom: 80px;
 
+    .sub-title {
+      text-wrap: balance;
+      text-align: center;
+    }
+
     .container {
       position: relative;
       display: flex;
@@ -1134,10 +1163,6 @@ main {
             aspect-ratio: 1 / 1;
             border-radius: 16px;
             overflow: hidden;
-
-            @media screen and (max-width: 767px) {
-              max-width: unset;
-            }
 
             &.anime-img {
               &:last-of-type {
