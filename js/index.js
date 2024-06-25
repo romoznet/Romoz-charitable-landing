@@ -72,7 +72,6 @@ $(document).ready(() => {
   var mainSliderThumbs = new Swiper(".mainSlider .thumbs", {
     slidesPerView: 1,
     watchSlidesProgress: true,
-    
   });
 
   // Main Slider
@@ -132,8 +131,8 @@ $(document).ready(() => {
 
     sections.forEach((section) => {
       if (
-        scrollPosition >= section.offsetTop - 100 &&
-        scrollPosition < section.offsetTop + section.offsetHeight - 100
+        scrollPosition >= section.offsetTop - 200 &&
+        scrollPosition < section.offsetTop + section.offsetHeight - 200
       ) {
         const id = section.getAttribute("id");
         document
@@ -218,5 +217,31 @@ $(document).ready(() => {
         spaceBetween: 50,
       },
     },
+  });
+
+  // Toggle highlighting the label of the inputs
+  const inputFields = document.querySelectorAll(
+    `main .contact-section .container .section-body .contact-inputs-form-section .contact-form .form-group .inputfield input`
+  );
+  const textareaFields = document.querySelectorAll(
+    `main .contact-section .container .section-body .contact-inputs-form-section .contact-form .form-group .inputfield textarea`
+  );
+
+  function highlight(e) {
+    e.target.previousElementSibling.classList.add("h");
+  }
+  function dehighlight(e) {
+    if (e.target.value === "") {
+      e.target.previousElementSibling.classList.remove("h");
+    }
+  }
+
+  inputFields.forEach((input) => {
+    input.addEventListener("focus", highlight);
+    input.addEventListener("blur", dehighlight);
+  });
+  textareaFields.forEach((textarea) => {
+    textarea.addEventListener("focus", highlight);
+    textarea.addEventListener("blur", dehighlight);
   });
 });
