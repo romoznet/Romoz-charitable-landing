@@ -971,7 +971,7 @@ main .donation-section .container .section-body .donation-steps .step .step-inde
   transition: 0.3s ease-in-out;
 }
 main .donation-section .container .section-body .donation-steps .step .step-content {
-  padding: 24px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
