@@ -1105,6 +1105,7 @@ main .gallery-section .container .section-body {
   flex-wrap: wrap;
 }
 main .gallery-section .container .section-body .main-img-box {
+  min-width: 300px;
   flex: 1 0 0;
   height: 100%;
   position: relative;
@@ -1159,6 +1160,11 @@ main .gallery-section .container .section-body .rest-img-container .gallery-box 
   aspect-ratio: 1/1;
   border-radius: 16px;
   overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  main .gallery-section .container .section-body .rest-img-container .gallery-box {
+    max-width: unset;
+  }
 }
 main .gallery-section .container .section-body .rest-img-container .gallery-box.anime-img:last-of-type:after {
   content: none;

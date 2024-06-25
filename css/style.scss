@@ -1073,6 +1073,7 @@ main {
         flex-wrap: wrap;
 
         .main-img-box {
+          min-width: 300px;
           flex: 1 0 0;
           height: 100%;
           position: relative;
@@ -1133,6 +1134,10 @@ main {
             aspect-ratio: 1 / 1;
             border-radius: 16px;
             overflow: hidden;
+
+            @media screen and (max-width: 767px) {
+              max-width: unset;
+            }
 
             &.anime-img {
               &:last-of-type {
@@ -1508,8 +1513,6 @@ footer {
         font-weight: 400;
         position: relative;
         text-wrap: balance;
-
-      
       }
     }
     .footerLinks {
