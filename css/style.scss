@@ -474,6 +474,7 @@ main {
         top: 50%;
         right: 0;
         transform: translateY(-50%);
+        text-align: center;
       }
       .swiper-slide {
         display: flex;
@@ -499,6 +500,7 @@ main {
         @media (max-width: 991px) {
           background-color: transparent;
           background-image: none;
+          align-items: center;
         }
 
         .heading {
@@ -508,6 +510,7 @@ main {
           text-wrap: balance;
           @media (max-width: 991px) {
             color: $whiteColor;
+            font-size: 40px;
           }
           span {
             color: $mainColor;
@@ -748,6 +751,7 @@ main {
         flex-wrap: wrap;
         @media screen and (max-width: 767px) {
           flex-direction: column-reverse;
+          text-align: center;
         }
         .imgs-conatiner {
           min-width: 300px;
@@ -1009,7 +1013,6 @@ main {
               }
             }
             .step-content {
-              flex: 1 0 0;
               padding: 32px 24px;
               display: flex;
               flex-direction: column;
@@ -1475,6 +1478,7 @@ footer {
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
+      text-align: start;
       align-self: stretch;
       @media (max-width: 768px) {
         width: 100%;
@@ -1483,12 +1487,11 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 10px;
         cursor: pointer;
         @media (max-width: 768px) {
           width: 100%;
-          align-items: center;
         }
         img {
           height: 50px;
@@ -1506,10 +1509,7 @@ footer {
         position: relative;
         text-wrap: balance;
 
-        @media (max-width: 768px) {
-          text-align: center;
-          text-wrap: balance;
-        }
+      
       }
     }
     .footerLinks {
