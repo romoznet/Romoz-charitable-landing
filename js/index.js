@@ -139,7 +139,7 @@ $(document).ready(() => {
           .querySelectorAll("header .container .nav-list li")
           .forEach((navLink) => {
             navLink.classList.remove("active");
-            if (navLink.children[0].getAttribute("href").slice(1) === id) {
+            if (navLink.children[0].getAttribute("href")?.slice(1) === id) {
               navLink.classList.add("active");
             }
           });
@@ -243,5 +243,19 @@ $(document).ready(() => {
   textareaFields.forEach((textarea) => {
     textarea.addEventListener("focus", highlight);
     textarea.addEventListener("blur", dehighlight);
+  });
+
+  // submenus
+});
+const navItems = document.querySelectorAll("header .container .nav-list li");
+navItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("show");
+  });
+  item.addEventListener("mouseenter", () => {
+    item.classList.add("show");
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("show");
   });
 });

@@ -373,17 +373,23 @@ header .container .nav-list {
   header .container .nav-list {
     position: absolute;
     flex-direction: column;
-    width: 100%;
+    overflow-y: auto;
+    width: 300px;
+    height: calc(100vh - 120px);
     top: 84px;
-    left: -110%;
+    right: -110%;
     box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     display: flex;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 12px 0;
   }
+  header .container .nav-list::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
   header .container .nav-list.open {
-    left: 0;
+    right: calc(100% - 300px);
   }
   header .container .nav-list li {
     width: 100%;
@@ -391,13 +397,19 @@ header .container .nav-list {
   header .container .nav-list li::before {
     content: none !important;
   }
-  header .container .nav-list li a {
+  header .container .nav-list li a,
+  header .container .nav-list li span {
+    width: 100%;
     filter: none !important;
+    text-align: right;
   }
-  header .container .nav-list li:not(.active) a {
+  header .container .nav-list li:not(.active) a,
+  header .container .nav-list li:not(.active) span {
     color: #1f1f1f !important;
   }
-  header .container .nav-list li.active a {
+  header .container .nav-list li:hover > a,
+  header .container .nav-list li:hover > span, header .container .nav-list li.active > a,
+  header .container .nav-list li.active > span {
     color: #f7941d !important;
   }
 }
@@ -429,10 +441,24 @@ header .container .nav-list li::before {
 header .container .nav-list li:hover::before, header .container .nav-list li.active::before {
   opacity: 1;
 }
-header .container .nav-list li:hover a, header .container .nav-list li.active a {
+header .container .nav-list li:hover a,
+header .container .nav-list li:hover span, header .container .nav-list li.active a,
+header .container .nav-list li.active span {
   color: #ffffff;
 }
-header .container .nav-list li a {
+@media (max-width: 991px) {
+  header .container .nav-list li:hover a,
+  header .container .nav-list li:hover span, header .container .nav-list li.active a,
+  header .container .nav-list li.active span {
+    color: #f7941d;
+  }
+}
+header .container .nav-list li:hover span img, header .container .nav-list li.active span img {
+  filter: brightness(0) invert(1);
+  transform: rotate(90deg);
+}
+header .container .nav-list li a,
+header .container .nav-list li span {
   color: #1f1f1f;
   text-align: start;
   font-size: 16px;
@@ -441,9 +467,89 @@ header .container .nav-list li a {
   transition: 0.3s ease-out;
   white-space: nowrap;
 }
+header .container .nav-list li span {
+  transition: 0.3s ease-in-out;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container .nav-list li span span {
+  flex: 1 0 0;
+}
+header .container .nav-list li span img {
+  width: 18px;
+  transform: rotate(180deg);
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 991px) {
+  header .container .nav-list li:has(.submenu) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+header .container .nav-list li.show .submenu {
+  opacity: 1;
+}
+@media (max-width: 991px) {
+  header .container .nav-list li.show .submenu {
+    display: flex;
+  }
+}
+header .container .nav-list li .submenu {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  top: calc(100% + 24px);
+  right: 0;
+  background-color: #fff;
+  padding: 16px 8px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  flex-direction: column;
+  gap: 8px;
+}
+@media (max-width: 991px) {
+  header .container .nav-list li .submenu {
+    width: 100%;
+    display: none;
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 0;
+    align-items: flex-start;
+  }
+}
+header .container .nav-list li .submenu li {
+  width: 100%;
+  padding: 4px 16px;
+}
+header .container .nav-list li .submenu li a {
+  width: 100%;
+  color: #1f1f1f;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 991px) {
+  header .container .nav-list li .submenu li:hover {
+    padding-right: 26px;
+  }
+}
+header .container .nav-list li .submenu li:hover a {
+  color: #ffffff;
+}
 header .container .lang-btn {
   padding: 8px 24px;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: rgba(247, 149, 29, 0.6);
   color: #ffffff;
   font-weight: bold;
@@ -471,6 +577,90 @@ main {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+main.governance-page {
+  width: 100%;
+  padding: 150px 8px 80px;
+  background-color: #fefefe;
+}
+main.governance-page .section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  align-items: center;
+}
+main.governance-page .section-body .section-heading {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-color: rgba(247, 149, 29, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+}
+main.governance-page .section-body .section-heading::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main.governance-page .section-body .section-heading .heading-box {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  justify-content: center;
+}
+main.governance-page .section-body .section-heading .heading-box h1 {
+  font-size: 56px;
+  font-weight: 800;
+}
+main.governance-page .section-body .section-heading .heading-box p {
+  text-wrap: balance;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: normal;
+}
+main.governance-page .section-body .section-heading .img-box {
+  flex: 1 0 0;
+  position: relative;
+  height: 100%;
+}
+main.governance-page .section-body .section-heading .img-box img {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main.governance-page .section-body .section-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  align-items: center;
+}
+main.governance-page .section-body .section-content .content-box {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+main.governance-page .section-body .section-content .content-box h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+main.governance-page .section-body .section-content .content-box ul {
+  list-style-position: inside;
 }
 main .mainSlider {
   width: 100%;
@@ -820,7 +1010,7 @@ main .about-section .container .section-body .imgs-conatiner::after {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px dashed rgba(247, 149, 29, 0.6);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 main .about-section .container .section-body .imgs-conatiner .img-boxes-conatainer {
   flex: 1;
@@ -961,7 +1151,7 @@ main .achievement-section .container .section-body .achievement-list .list-item 
   position: relative;
   padding: 8px;
   box-shadow: 0 0 2px 1px rgba(239, 239, 239, 0.4);
-  border-radius: 16px;
+  border-radius: 12px;
 }
 main .achievement-section .container .section-body .achievement-list .list-item h5 {
   font-size: 40px;
@@ -1137,7 +1327,7 @@ main .gallery-section .container .section-body .main-img-box {
   height: 100%;
   position: relative;
   display: flex;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
 }
 main .gallery-section .container .section-body .anime-img:after {
@@ -1185,7 +1375,7 @@ main .gallery-section .container .section-body .rest-img-container .gallery-box 
   position: relative;
   display: flex;
   aspect-ratio: 1/1;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
 }
 main .gallery-section .container .section-body .rest-img-container .gallery-box.anime-img:last-of-type:after {
@@ -1292,7 +1482,7 @@ main .contact-section .container .section-body .contact-info-form-section .conta
   align-items: flex-start;
   gap: 32px;
   align-self: stretch;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #fff;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1019607843);
 }
@@ -1396,7 +1586,7 @@ main .contact-section .container .section-body .contact-inputs-form-section .con
   background: #fff;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1019607843);
   padding: 42px 12px;
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -1499,6 +1689,7 @@ footer {
   padding: 40px 80px;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 footer::before {
   content: none;
@@ -1712,7 +1903,7 @@ footer .container .support .support-contact-social li a img {
   min-width: 140px;
   padding-right: 48px;
   min-width: 140px;
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
