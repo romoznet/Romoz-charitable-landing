@@ -367,7 +367,7 @@ header {
         border-radius: 12px;
         padding: 12px 0;
         &.open {
-          right: calc(100% - 300px);
+          right: 0;
         }
         li {
           width: 100%;

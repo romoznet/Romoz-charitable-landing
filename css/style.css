@@ -389,7 +389,7 @@ header .container .nav-list {
     height: 0;
   }
   header .container .nav-list.open {
-    right: calc(100% - 300px);
+    right: 0;
   }
   header .container .nav-list li {
     width: 100%;
